@@ -1,47 +1,29 @@
-const Engine = Matter.Engine;
-
+/* const Engine = Matter.Engine;
 const World = Matter.World;
-
 const Bodies = Matter.Bodies;
 
 var engine, world;
+var box1,box2;
+var ground;
 
 function setup() {
   createCanvas(800, 400);
 
-  createSprite(400, 200, 50, 50);
-
   engine = Engine.create();
-
   world = engine.world;
 
-  var ground_options = { isStatic: true }
-  var ball_options = { restitution: 1.0 }
-
-
-  ground = Bodies.rectangle(200, 390, 200, 20, ground_options);
-
-  ball = Bodies.circle(200, 100, 20, ball_options)
-
-  World.add(world, ground);
-
-  World.add(world, ball);
-
-  console.log(ground);
-  console.log(ground.type);
-  console.log(ground.position.x);
-  console.log(ground.position.y);
-
+  box1 = new Box(200,200,50,50);
+  box2 = new Box(240,100,50,50);
+  ground = new Ground(200,390,400,20);
 }
 
 function draw() {
   background(0, 0, 0);
+  Engine.update(engine);
 
-  Engine.update(engine); rectMode(CENTER);
+  box1.display();
+  box2.display();
+  ground.display();
+} */
 
-  rect(ground.position.x, ground.position.y, 50, 50);
-  ellipseMode(RADIUS);
-  ellipse(ball.position.x, ball.position.y, 20, 20);
-
-  drawSprites();
-}
+const Engine = Matter.Engine; const World= Matter.World; const Bodies = Matter.Bodies; var engine, world; var box1; function setup(){ var canvas = createCanvas(400,400); engine = Engine.create(); world = engine.world; box1 = new Box(200,300,50,50); box2 = new Box(240,100,50,100); ground = new Ground(200,height,400,20) } function draw(){ background(0); Engine.update(engine); console.log(box2.body.position.x); console.log(box2.body.position.y); console.log(box2.body.angle); box1.display(); box2.display(); ground.display(); }
